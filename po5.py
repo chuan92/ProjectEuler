@@ -3,9 +3,7 @@
 
 def gcd(a, b):
     while b != 0:
-        tmp = a
-        a = b
-        b = tmp % b
+        a, b = b, a % b
     return a
 
 
@@ -13,11 +11,11 @@ def lcm(a, b):
     return a * b / gcd(a, b)
 
 
-def smallestMultiple(n):
-    if n == 2:
-        return 2
-    else:
-        return lcm(smallestMultiple(n-1), n)
+def smallestMultiple(start, end):
+    res = 1
+    for elem in range(start, end + 1):
+        res = lcm(res, elem)
+    return res
 
-input_number = input()
-print smallestMultiple(input_number)
+if __name__ == '__main__':
+    print smallestMultiple(1, 20)
