@@ -7,6 +7,12 @@ def findPrimeFactors(m):
     i = 2
     while i <= math.sqrt(m):
         if(m % i == 0):
+            # can test here
+            # p = 0
+            # while(m % i == 0):
+            #   m = m / i
+            #   ++p
+            # k *= (p+1)
             m = m / i
             if i in factor:
                 factor[i] = factor[i]+1
@@ -27,6 +33,7 @@ def findFactors(n):
     primeFactor = findPrimeFactors(n)
     return reduce(lambda x, y: x*y, map(lambda x: x+1, primeFactor.values()))
 
+# in fact we needn't store the prime factors, only calc its number.
 i = 7
 while True:
     n = i*(i+1)/2
